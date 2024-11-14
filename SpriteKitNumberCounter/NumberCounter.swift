@@ -19,7 +19,7 @@ struct NumberCounterView: View {
     var body: some View {
         SpriteView(
             scene: myScene
-            ,debugOptions: [.showsFPS, .showsNodeCount, .showsQuadCount, .showsFields]
+            //,debugOptions: [.showsFPS, .showsNodeCount, .showsQuadCount, .showsFields]
         )
         .ignoresSafeArea()
     }
@@ -73,7 +73,7 @@ class NumberCounterScene: SKScene {
     /// Try different values of camera scale.
     func createCamera() {
         let camera = SKCameraNode()
-        camera.setScale(1)
+        camera.setScale(0.5)
         camera.zPosition = 1000
         self.camera = camera
         addChild(camera)
