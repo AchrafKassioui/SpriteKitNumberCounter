@@ -1,6 +1,6 @@
 #  SpriteKit Number Counter
 
-## Videos
+## Video
 
 https://github.com/user-attachments/assets/e13d622d-fa7d-4573-8275-466fa7ac15ae
 
