@@ -2,6 +2,8 @@
  
  # Animated Number Counter
  
+ This was a draft version of the animated counter.
+ 
  Achraf Kassioui
  Created: 13 November 2024
  Updated: 14 November 2024
@@ -78,7 +80,7 @@ class FirstNumberCounterScene: SKScene {
     
     func createParticleEmitters() {
         for i in 0...9 {
-            // Create and configure emitter for units
+            /// Create and configure emitter for units
             if let emitterUnits = SKEmitterNode(fileNamed: "NumberEmitter") {
                 emitterUnits.particleTexture = SKTexture(imageNamed: "\(i)-SF Mono")
                 emitterUnits.position = CGPoint(x: 8, y: 0)
@@ -95,7 +97,7 @@ class FirstNumberCounterScene: SKScene {
                 digitEmittersUnits.append(emitterUnits)
             }
             
-            // Create and configure emitter for tens
+            /// Create and configure emitter for tens
             if let emitterTens = SKEmitterNode(fileNamed: "NumberEmitter") {
                 emitterTens.particleTexture = SKTexture(imageNamed: "\(i)-SF Mono")
                 emitterTens.position = CGPoint(x: -8, y: 0)
@@ -154,13 +156,13 @@ class FirstNumberCounterScene: SKScene {
     }
     
     func updateParticleEmitters() {
-        // Clamp counter between 0 and 99
+        /// Clamp counter between 0 and 99
         counter = max(0, min(99, counter))
         
-        // Format counter as a two-digit string
+        /// Format counter as a two-digit string
         let formattedCounter = String(format: "%02d", counter)
         
-        // Display the counter label
+        /// Display the counter label
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.monospacedSystemFont(ofSize: 25, weight: .bold),
             .foregroundColor: SKColor.white,
@@ -170,14 +172,14 @@ class FirstNumberCounterScene: SKScene {
         counterlabel.horizontalAlignmentMode = .center
         counterlabel.attributedText = NSAttributedString(string: formattedCounter, attributes: attributes)
         
-        // Separate the counter into tens and units
+        /// Separate the counter into tens and units
         let tens = counter / 10
         let units = counter % 10
         
-        // Determine if we are incrementing or decrementing
+        /// Determine if we are incrementing or decrementing
         let isIncrementing = counter > (previousTens * 10 + previousUnits)
         
-        // Adjust effects based on incrementing or decrementing
+        /// Adjust effects based on incrementing or decrementing
         let particleSpeed: CGFloat = isIncrementing ? -300 : 300
         let colorSequence: SKKeyframeSequence = isIncrementing ? SKKeyframeSequence(
             keyframeValues: [SKColor.white, SKColor.systemGreen],
@@ -197,7 +199,7 @@ class FirstNumberCounterScene: SKScene {
         counterlabel.removeAllActions()
         counterlabel.run(isIncrementing ? popUpAction : popDownAction)
         
-        // Check if units changed and trigger corresponding emitter with previous value
+        /// Check if units changed and trigger corresponding emitter with previous value
         if units != previousUnits {
             let previousUnitsEmitter = digitEmittersUnits[previousUnits]
             previousUnitsEmitter.particleBirthRate = 1
@@ -208,7 +210,7 @@ class FirstNumberCounterScene: SKScene {
             }
         }
         
-        // Check if tens changed and trigger corresponding emitter with previous value
+        /// Check if tens changed and trigger corresponding emitter with previous value
         if tens != previousTens {
             let previousTensEmitter = digitEmittersTens[previousTens]
             previousTensEmitter.particleBirthRate = 1
@@ -219,7 +221,7 @@ class FirstNumberCounterScene: SKScene {
             }
         }
         
-        // Update previous values
+        /// Update previous values
         previousTens = tens
         previousUnits = units
     }

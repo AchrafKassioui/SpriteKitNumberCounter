@@ -2,6 +2,8 @@
  
  # Animated Number Counter
  
+ The number counter is inspired from SwiftUI contentTransition(.numericText())
+ 
  Achraf Kassioui
  Created: 14 November 2024
  Updated: 14 November 2024
@@ -178,9 +180,8 @@ class NumberCounterScene: SKScene {
                 emitterTens.particleBirthRate = birthRate
                 emitterTens.particleLifetime = lifetime
                 emitterTens.particleAlpha = particleAlpha
-                emitterTens.particleAlphaSpeed = -1
+                emitterTens.particleAlphaSpeed = particleAlphaSpeed
                 emitterTens.particleScaleSpeed = particleScaleSpeed
-                emitterTens.particleScale = 1
                 
                 emittersOfPreviousTens.append(emitterTens)
             }
@@ -216,9 +217,9 @@ class NumberCounterScene: SKScene {
                 emitterTensCurrent.particleBirthRate = birthRate
                 emitterTensCurrent.particleLifetime = lifetime
                 emitterTensCurrent.particleAlpha = particleAlpha
-                emitterTensCurrent.particleAlphaSpeed = -1
+                emitterTensCurrent.particleAlphaSpeed = particleAlphaSpeed
                 emitterTensCurrent.particleScaleSpeed = particleScaleSpeed
-                emitterTensCurrent.particleScale = 1
+                emitterTensCurrent.particleScale = 1.5
                 
                 emittersOfCurrentTens.append(emitterTensCurrent)
             }
@@ -277,7 +278,7 @@ class NumberCounterScene: SKScene {
         let previousEmitterPositionY: CGFloat = isIncrementing ? -5 : 5
         let currentEmitterPositionY: CGFloat = isIncrementing ? 20 : -20
         
-        // Animate only changed labels
+        /// Animate only changed labels
         if units != previousUnits {
             labelForUnits.removeAction(forKey: "labelAnimation")
             labelForUnits.run(labelAnimation, withKey: "labelAnimation")
