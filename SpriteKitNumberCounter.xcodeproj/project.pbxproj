@@ -6,14 +6,24 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DE31E2462CE67B5800C0E405 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DE31E2452CE67B5800C0E405 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		DE31E2302CE67B1700C0E405 /* SpriteKitNumberCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteKitNumberCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE31E2452CE67B5800C0E405 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DE31E2322CE67B1700C0E405 /* SpriteKitNumberCounter */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SpriteKitNumberCounter;
+			sourceTree = "<group>";
+		};
+		DE31E2432CE67B5000C0E405 /* Images */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +42,8 @@
 		DE31E2272CE67B1700C0E405 = {
 			isa = PBXGroup;
 			children = (
+				DE31E2452CE67B5800C0E405 /* README.md */,
+				DE31E2432CE67B5000C0E405 /* Images */,
 				DE31E2322CE67B1700C0E405 /* SpriteKitNumberCounter */,
 				DE31E2312CE67B1700C0E405 /* Products */,
 			);
@@ -62,6 +74,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				DE31E2322CE67B1700C0E405 /* SpriteKitNumberCounter */,
+				DE31E2432CE67B5000C0E405 /* Images */,
 			);
 			name = SpriteKitNumberCounter;
 			packageProductDependencies = (
@@ -109,6 +122,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE31E2462CE67B5800C0E405 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +261,6 @@
 				CODE_SIGN_ENTITLEMENTS = SpriteKitNumberCounter/SpriteKitNumberCounter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SpriteKitNumberCounter/Preview Content\"";
 				DEVELOPMENT_TEAM = G2XS6FMGZT;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -286,7 +299,6 @@
 				CODE_SIGN_ENTITLEMENTS = SpriteKitNumberCounter/SpriteKitNumberCounter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SpriteKitNumberCounter/Preview Content\"";
 				DEVELOPMENT_TEAM = G2XS6FMGZT;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
