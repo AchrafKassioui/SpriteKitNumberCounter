@@ -50,6 +50,8 @@ class NumberCounterScene: SKScene {
     var incrementButton = SKNode()
     var decrementButton = SKNode()
     
+    var haptic = UIImpactFeedbackGenerator()
+    
     // MARK: Scene Setup
     
     override func didMove(to view: SKView) {
@@ -67,6 +69,8 @@ class NumberCounterScene: SKScene {
         createDecrementButton(view: view)
         createCounterLabels()
         updateCounterLabels()
+        
+        haptic.prepare()
     }
     
     /// The UI is attached to the camera. The camera can be zoomed in and out for prototyping purposes.
@@ -344,10 +348,12 @@ class NumberCounterScene: SKScene {
             counter += 1
             updateCounterLabels()
             animateButton(incrementButton)
+            haptic.impactOccurred(intensity: 0.75)
         } else if decrementButton.contains(locationInCamera) {
             counter -= 1
             updateCounterLabels()
             animateButton(decrementButton)
+            haptic.impactOccurred(intensity: 0.5)
         }
     }
 }
