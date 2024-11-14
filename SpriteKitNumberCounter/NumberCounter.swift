@@ -146,8 +146,8 @@ class NumberCounterScene: SKScene {
         let birthRate: CGFloat = 0
         let lifetime: CGFloat = 3
         let particleAlpha: CGFloat = 0.4 /// Default 0.4
-        let particleAlphaSpeed: CGFloat = -1.5
-        let particleScaleSpeed: CGFloat = -1.5
+        let particleAlphaSpeed: CGFloat = -2 /// Default -1.5
+        let particleScaleSpeed: CGFloat = 0 /// Default -1.5
         
         for i in 0...9 {
             /// Create emitter for the previous units digit
@@ -200,7 +200,7 @@ class NumberCounterScene: SKScene {
                 emitterUnitsCurrent.particleAlpha = particleAlpha
                 emitterUnitsCurrent.particleAlphaSpeed = particleAlphaSpeed
                 emitterUnitsCurrent.particleScaleSpeed = particleScaleSpeed
-                emitterUnitsCurrent.particleScale = 1.5
+                //emitterUnitsCurrent.particleScale = 1.5
                 
                 emittersOfCurrentUnits.append(emitterUnitsCurrent)
             }
@@ -219,7 +219,7 @@ class NumberCounterScene: SKScene {
                 emitterTensCurrent.particleAlpha = particleAlpha
                 emitterTensCurrent.particleAlphaSpeed = particleAlphaSpeed
                 emitterTensCurrent.particleScaleSpeed = particleScaleSpeed
-                emitterTensCurrent.particleScale = 1.5
+                //emitterTensCurrent.particleScale = 1.5
                 
                 emittersOfCurrentTens.append(emitterTensCurrent)
             }
@@ -228,13 +228,13 @@ class NumberCounterScene: SKScene {
     
     // MARK: Labels
     
+    let labelOriginalPositionY: CGFloat = -11
+    
     func createCounterLabels() {
-        labelForUnits.verticalAlignmentMode = .center
-        labelForUnits.position = CGPoint(x: 8, y: 0)
+        labelForUnits.position = CGPoint(x: 8, y: labelOriginalPositionY)
         addChild(labelForUnits)
         
-        labelForTens.verticalAlignmentMode = .center
-        labelForTens.position = CGPoint(x: -8, y: 0)
+        labelForTens.position = CGPoint(x: -8, y: labelOriginalPositionY)
         addChild(labelForTens)
     }
     
@@ -265,12 +265,12 @@ class NumberCounterScene: SKScene {
         /// Create actions and effects based on incrementing or decrementing
         let labelAnimation = SKAction.sequence([
             SKAction.fadeOut(withDuration: 0),
-            SKAction.moveTo(y: isIncrementing ? 15 : -15, duration: 0),
+            SKAction.moveTo(y: isIncrementing ? labelOriginalPositionY+15 : labelOriginalPositionY-15, duration: 0),
             SKAction.group([
                 SKAction.fadeIn(withDuration: 0.05),
-                SKAction.moveTo(y: isIncrementing ? -3 : 3, duration: 0.1)
+                SKAction.moveTo(y: isIncrementing ? labelOriginalPositionY-3 : labelOriginalPositionY+3, duration: 0.1)
             ]),
-            SKAction.moveTo(y: 0, duration: 0.1)
+            SKAction.moveTo(y: labelOriginalPositionY, duration: 0.1)
         ])
         labelAnimation.timingMode = .easeInEaseOut
         
